@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Krona_One, Quicksand } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const krona = Krona_One({
+  subsets: ["latin"],
+  weight: ["400"],
+
+  variable: "--font-krona",
+});
+
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-quicksand",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`  ${krona.variable} ${quicksand.variable} font-krona`}>
+        {children}
+      </body>
     </html>
   );
 }
